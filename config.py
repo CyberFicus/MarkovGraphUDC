@@ -1,0 +1,2 @@
+SHOW_PARSED_WORDS = True
+LAMBDA = "*"
