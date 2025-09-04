@@ -38,7 +38,7 @@ def build_partitions(
             break
         
         if (base_word.find(word,suff_idx) == suff_idx):
-            res.append(
+            res.extend(
                 build_partitions(
                     base_word, 
                     root_len + len(word),
