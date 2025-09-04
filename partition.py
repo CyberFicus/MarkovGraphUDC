@@ -2,7 +2,7 @@ from config import LAMBDA
 
 class Partition:
     suffixes = set()
-    preffixes = set()
+    prefixes = set()
 
     def __init__(self, codeword: str, root_idx: int, suff_idx: int):
         if (root_idx < 0 or root_idx > suff_idx or suff_idx > len(codeword)):
@@ -11,7 +11,7 @@ class Partition:
         self.root_idx = root_idx
         self.suff_idx = suff_idx
 
-        Partition.preffixes.add(self.pref)
+        Partition.prefixes.add(self.pref)
         Partition.suffixes.add(self.suff)
 
     def __get_pref(self ):
