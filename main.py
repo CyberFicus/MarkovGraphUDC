@@ -88,7 +88,13 @@ def get_all_partitions(codewords: list):
 
 fname = "input/in1.txt"
 codewords = parse_file(fname)
-partitions = get_all_partitions(codewords)
 
-print("Partitions:")
-print(partitions)
+partitions = get_all_partitions(codewords)
+final_partitions = set([p for p in partitions if (
+    isinstance(p, prt) and
+    p.pref in prt.suffixes and
+    p.suff in prt.prefixes
+)])
+
+print("\nPartitions:")
+print(final_partitions)
