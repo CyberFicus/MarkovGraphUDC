@@ -184,6 +184,9 @@ partitions = get_all_partitions(codewords)
 print("\nPartitions:")
 print(partitions)
 
+if (len(partitions) == 0):
+    exit(0)
+
 lambda_node = build_graph(partitions)
 cycle = find_way(lambda_node, lambda_node)
 
