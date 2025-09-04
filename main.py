@@ -138,20 +138,16 @@ def find_way(src: node, dst :node):
 
     def find_link_to(dst :node):
         if (dst not in src.linked_nodes):
-            raise ValueError(f"{dst} not linked to {src}")
+            raise Exception(f"{dst} not linked to {src}")
         
-        for l in src.links:
-            if (not isinstance(l, link)):
-                print(f"WARNING: {l} in links of node {src}")
-                continue
-            if (l.src != src):
-                print(f"WARNING: link {l} does not belong to node {src}")
-                continue
-
-            if (l.dst == dst):
-                return l
-        
-        raise ValueError(f"{src} linked to {dst} with no link")
+        l = src.links[dst]
+        if (not isinstance(l, link)):
+            raise Exception(f"{l} in links of node {src} is not a link")
+        if (l.src != src):
+            raise Exception(f"link {l} does not belong to node {src}")
+        if (l.dst != dst):
+            raise Exception(f"{l} links to {l.dst} instead of {dst}")
+        return l
 
     if ( # dst one link away
         src != dst and        

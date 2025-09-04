@@ -9,7 +9,7 @@ class Node:
         if (node_name == ""):
             raise ValueError("node_name is empty")
         self.name = node_name
-        self.links = set()
+        self.links = {}
         self.linked_nodes = set()
 
         Node.nodes[node_name] = self
@@ -34,7 +34,7 @@ class Node:
 
     def link(self, dst :'Node', link_name :str):
         newlink = Link(self, dst, link_name)
-        self.links.add(newlink)
+        self.links[dst] = newlink
         self.linked_nodes.add(dst)
         return newlink     
 
